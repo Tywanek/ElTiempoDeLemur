@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ElTiempoDeLemur</string>
+    <string name="action_settings">Settings</string>
+    <string name="BASE_URL">http://api.geonames.org</string>
+</resources>
