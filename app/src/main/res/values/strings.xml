@@ -4,4 +4,7 @@
     <string name="BASE_URL">http://api.geonames.org</string>
     <string name="USER_NAME">ilgeonamessample</string>
     <string name="details_tempertre">Temperature: %1$d</string>
+
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">YOUR_KEY_HERE</string>
+
 </resources>

@@ -35,7 +35,9 @@ class MainActivity : AppCompatActivity() {
         initRetrofit()
         setSearchBox()
 
-
+        data.name = "Buenos Aires"
+        data.temperature = 30
+        startActivity(DetailActivity.newIntent(this@MainActivity, data))
 
     }
 
@@ -74,7 +76,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun callWeatherEndpoin(geoname: Geoname) {
+    private fun callWeatherEndpoint(geoname: Geoname) {
         val weatherCall = _weatherAPI?.getWeatherResponse(
             geoname.bbox.north,
             geoname.bbox.south,
@@ -94,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         geoAdapter.onItemClick = { geoname ->
             Toast.makeText(this, geoname.name, Toast.LENGTH_SHORT).show()
             data.name = geoname.name
-            callWeatherEndpoin(geoname)
+            callWeatherEndpoint(geoname)
         }
     }
 
