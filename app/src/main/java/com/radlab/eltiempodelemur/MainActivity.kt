@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun callGeoEndPoint() {
-        val usersCall = _weatherAPI?.weather
+        val usersCall = _weatherAPI?.getWeather("Barcelona", 20, 0, "EN", true, "FULL", "ilgeonamessample" )
         usersCall?.enqueue(_weatherResponseCallback)
     }
 
