@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
             if (response != null) {
                 setGeoAdapter(response.body().geonames)
             } else {
-                Log.d("Error message", response!!.raw().message())
                 Log.d("Error code", response!!.raw().code().toString())
             }
         }
@@ -68,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         usersCall?.enqueue(_weatherResponseCallback)
     }
 
-    private fun setGeoAdapter(list: List<Geoname> ){
+    private fun setGeoAdapter(list: List<Geoname>) {
         geo_recycler_view.layoutManager = LinearLayoutManager(this)
         val geoAdapter = GeoAdapter(list, this)
         geo_recycler_view.adapter = geoAdapter

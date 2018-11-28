@@ -19,7 +19,8 @@ class GeoAdapter(val items: List<Geoname>, val context: Context) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.name.text = items[position].name
+        holder.name1.text = items[position].name
+        holder.name2.text = items[position].toponymName
     }
 
     override fun getItemCount(): Int {
@@ -28,7 +29,8 @@ class GeoAdapter(val items: List<Geoname>, val context: Context) : RecyclerView.
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val name = itemView.geo_name
+        val name1 = itemView.geo_name
+        val name2 = itemView.geo_toponym_name
 
         init {
             itemView.setOnClickListener {
