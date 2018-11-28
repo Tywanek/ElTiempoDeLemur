@@ -1,8 +1,9 @@
 
-package com.radlab.eltiempodelemur.network.models.weatherModels;
+package com.radlab.eltiempodelemur.network.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.radlab.eltiempodelemur.network.models.weatherModels.WeatherObservation;
 
 import java.util.List;
 

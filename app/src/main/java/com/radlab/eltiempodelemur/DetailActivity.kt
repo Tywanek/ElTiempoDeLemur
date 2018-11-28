@@ -3,27 +3,19 @@ package com.radlab.eltiempodelemur
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
-import com.radlab.eltiempodelemur.network.ElTiempoAPI
-import com.radlab.eltiempodelemur.network.models.geoModels.Geoname
-import com.radlab.eltiempodelemur.network.response.GeoResponse
+import com.radlab.eltiempodelemur.realm.SearchItem
 import kotlinx.android.synthetic.main.activity_detils.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
-import retrofit.Callback
-import retrofit.GsonConverterFactory
-import retrofit.Response
-import retrofit.Retrofit
-import java.io.IOException
 
 class DetailActivity : AppCompatActivity() {
 
     companion object {
-        fun newIntent(context: Context): Intent {
+        private const val EXTRA_KEY = "detail_activity_extra_key"
+
+        fun newIntent(context: Context, searchItem: SearchItem): Intent {
             val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra(EXTRA_KEY, searchItem)
             return intent
         }
     }
@@ -32,7 +24,8 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detils)
         setSupportActionBar(toolbar)
-        details_text.text = "Details"
 
+        val searchItem = intent.extras.get(EXTRA_KEY) as SearchItem
+        details_text.text = searchItem.name
     }
 }

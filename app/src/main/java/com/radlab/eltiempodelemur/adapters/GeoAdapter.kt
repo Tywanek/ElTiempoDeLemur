@@ -19,7 +19,7 @@ class GeoAdapter(val items: List<Geoname>, val context: Context) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.name1.text = items[position].name
+        holder.name1.text = items[position].asciiName
         holder.name2.text = items[position].toponymName
     }
 

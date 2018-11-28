@@ -9,9 +9,14 @@
         tools:showIn="@layout/activity_main"
         tools:context=".MainActivity">
 
-    <EditText android:id="@+id/search_box"
+    <EditText
+            android:id="@+id/search_box"
             android:layout_width="match_parent"
-              android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="some hint"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:maxLines="1" />
 
     <android.support.v7.widget.RecyclerView
             android:layout_marginTop="40dp"
