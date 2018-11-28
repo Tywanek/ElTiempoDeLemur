@@ -23,51 +23,23 @@ import retrofit.Retrofit
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
-    val data = SearchItem()
 
+    val data = SearchItem()
     private var _weatherAPI: ElTiempoAPI? = null
 
-    private val _geoSearchResponseCallback = object : Callback<GeoResponse> {
-        override fun onResponse(response: Response<GeoResponse>?, retrofit: Retrofit) {
-            if (response != null) {
-                setGeoAdapter(response.body().geonames)
-
-            }
-        }
-
-        override fun onFailure(t: Throwable) {
-            if (t is IOException) {
-                Log.d("Error message", "network connection error")
-            } else {
-                Log.d("Error message", "unknown connection error")
-            }
-        }
-    }
-
-    private val _weatherResponseCallback = object : Callback<WeatherResponse> {
-        override fun onResponse(response: Response<WeatherResponse>?, retrofit: Retrofit) {
-            if (response != null) {
-                Log.d("###", response.body().weatherObservations[0].temperature)
-                data.temperature = response.body().weatherObservations[0].temperature.toInt()
-                startActivity(DetailActivity.newIntent(this@MainActivity, data))
-            }
-        }
-
-        override fun onFailure(t: Throwable) {
-            if (t is IOException) {
-                Log.d("Error message", "network connection error")
-            } else {
-                Log.d("Error message", "unknown connection error")
-            }
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         initRetrofit()
+        setSearchBox()
 
+
+
+    }
+
+    private fun setSearchBox() {
         search_box.setOnEditorActionListener() { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 callGeoEndPoint(search_box.text.toString())
@@ -123,6 +95,41 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, geoname.name, Toast.LENGTH_SHORT).show()
             data.name = geoname.name
             callWeatherEndpoin(geoname)
+        }
+    }
+
+    private val _geoSearchResponseCallback = object : Callback<GeoResponse> {
+        override fun onResponse(response: Response<GeoResponse>?, retrofit: Retrofit) {
+            if (response != null) {
+                setGeoAdapter(response.body().geonames)
+
+            }
+        }
+
+        override fun onFailure(t: Throwable) {
+            if (t is IOException) {
+                Log.d("Error message", "network connection error")
+            } else {
+                Log.d("Error message", "unknown connection error")
+            }
+        }
+    }
+
+    private val _weatherResponseCallback = object : Callback<WeatherResponse> {
+        override fun onResponse(response: Response<WeatherResponse>?, retrofit: Retrofit) {
+            if (response != null) {
+                Log.d("###", response.body().weatherObservations[0].temperature)
+                data.temperature = response.body().weatherObservations[0].temperature.toInt()
+                startActivity(DetailActivity.newIntent(this@MainActivity, data))
+            }
+        }
+
+        override fun onFailure(t: Throwable) {
+            if (t is IOException) {
+                Log.d("Error message", "network connection error")
+            } else {
+                Log.d("Error message", "unknown connection error")
+            }
         }
     }
 

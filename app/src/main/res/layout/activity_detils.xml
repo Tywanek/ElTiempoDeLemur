@@ -2,6 +2,26 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent">
-<TextView android:layout_width="match_parent" android:layout_height="match_parent"
-          android:id="@+id/details_text"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:orientation="vertical">
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/details_name"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/details_temperature"/>
+        <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:indeterminate="false"
+                android:max="50"
+                android:progress="1"/>
+
+    </LinearLayout>
+
+
 </android.support.constraint.ConstraintLayout>
