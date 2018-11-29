@@ -11,4 +11,7 @@ open class SearchItem() : RealmObject(), Serializable {
     var id: Long = 0
     var name: String? = null
     var temperature: Int? = null
+    var lat: Double? = null
+    var lng: Double? = null
+
 }

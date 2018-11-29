@@ -5,6 +5,14 @@
     <string name="USER_NAME">ilgeonamessample</string>
     <string name="details_tempertre">Temperature: %1$d</string>
 
-    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">YOUR_KEY_HERE</string>
 
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">YOUR_KEY_HERE</string>
+    <string name="title_activity_maps">Map</string>
+
+
+    <string name="error_unknown">unknown connection error</string>
+    <string name="error_TAG">Error message</string>
+    <string name="error_empty">empty</string>
+    <string name="error_network_connection">network connection error</string>
+    <string name="realm_bd_name">myDB1</string>
 </resources>
